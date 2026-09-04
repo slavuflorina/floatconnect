@@ -1,0 +1,232 @@
+/**
+ * FloatConnect frontend styles.
+ *
+ * @package FloatConnect
+ */
+
+
+/* ---------------------------------------------------------
+ * Base
+ * --------------------------------------------------------- */
+
+.fc {
+	position: fixed;
+	z-index: var(--fc-z, 999999);
+	box-sizing: border-box;
+}
+
+.fc--bottom-right {
+	right: var(--fc-side, 24px);
+	bottom: var(--fc-bottom, 24px);
+}
+
+.fc--bottom-left {
+	left: var(--fc-side, 24px);
+	bottom: var(--fc-bottom, 24px);
+}
+
+
+/* ---------------------------------------------------------
+ * Contact
+ * --------------------------------------------------------- */
+
+.fc__contact {
+	background: var(--fc-contact-bg, #25D366);
+	color: var(--fc-contact-icon, #FFFFFF);
+	text-decoration: none;
+	box-sizing: border-box;
+
+	transition:
+		transform 0.2s ease,
+		background-color 0.2s ease,
+		color 0.2s ease,
+		opacity 0.2s ease,
+		box-shadow 0.2s ease;
+}
+
+
+/* ---------------------------------------------------------
+ * Single button
+ * --------------------------------------------------------- */
+
+.fc__contact--single {
+	position: relative;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	width: var(--fc-size, 60px);
+	height: var(--fc-size, 60px);
+
+	padding: 0;
+	margin: 0;
+
+	border-radius: var(--fc-radius, 50%);
+
+	background: var(--fc-contact-bg, #25D366);
+	color: var(--fc-contact-icon, #FFFFFF);
+
+	box-sizing: border-box;
+}
+
+.fc__contact--single:hover {
+	background: var(--fc-contact-hover-bg, #20BD5A);
+	color: var(--fc-contact-hover-icon, #FFFFFF);
+	text-decoration: none;
+}
+
+.fc__contact--single:focus-visible {
+	outline: 2px solid currentColor;
+	outline-offset: 3px;
+}
+
+
+/* ---------------------------------------------------------
+ * Disable hover
+ * --------------------------------------------------------- */
+
+.fc--no-hover .fc__contact:hover {
+	opacity: 1;
+}
+
+.fc--no-hover .fc__contact {
+	animation: none !important;
+}
+
+
+/* ---------------------------------------------------------
+ * Icon
+ * --------------------------------------------------------- */
+
+.fc__icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	width: 100%;
+	height: 100%;
+
+	line-height: 1;
+	flex-shrink: 0;
+}
+
+.fc-icon-svg {
+	display: block;
+
+	width: var(--fc-icon-size, 32px);
+	height: var(--fc-icon-size, 32px);
+
+	fill: currentColor;
+	color: inherit;
+
+	flex-shrink: 0;
+}
+
+
+/* ---------------------------------------------------------
+ * Shadows
+ * --------------------------------------------------------- */
+
+.fc--shadow-none .fc__contact--single {
+	box-shadow: none;
+}
+
+.fc--shadow-soft .fc__contact--single {
+	box-shadow:
+		0 4px 14px rgba(0, 0, 0, 0.14);
+}
+
+.fc--shadow-strong .fc__contact--single {
+	box-shadow:
+		0 8px 30px rgba(0, 0, 0, 0.24);
+}
+
+
+/* ---------------------------------------------------------
+ * Animation - Pulse
+ * --------------------------------------------------------- */
+
+@keyframes fc-pulse {
+
+	0% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(1.06);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
+
+.fc--animation-pulse .fc__contact--single {
+	animation:
+		fc-pulse 2s ease-in-out infinite;
+}
+
+
+/* ---------------------------------------------------------
+ * Animation - Bounce
+ * --------------------------------------------------------- */
+
+@keyframes fc-bounce {
+
+	0%,
+	20%,
+	50%,
+	80%,
+	100% {
+		transform: translateY(0);
+	}
+
+	40% {
+		transform: translateY(-7px);
+	}
+
+	60% {
+		transform: translateY(-3px);
+	}
+}
+
+.fc--animation-bounce .fc__contact--single {
+	animation:
+		fc-bounce 2s ease-in-out infinite;
+}
+
+
+/* ---------------------------------------------------------
+ * Mobile - single button
+ * --------------------------------------------------------- */
+
+@media (max-width: 767px) {
+
+	.fc__contact--single {
+		width: var(--fc-size, 60px);
+		height: var(--fc-size, 60px);
+	}
+
+	.fc-icon-svg {
+		width: var(--fc-icon-size, 32px);
+		height: var(--fc-icon-size, 32px);
+	}
+}
+
+
+/* ---------------------------------------------------------
+ * Reduced motion
+ * --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+	.fc *,
+	.fc *::before,
+	.fc *::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+
+		transition-duration: 0.01ms !important;
+	}
+}

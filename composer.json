@@ -1,0 +1,27 @@
+{
+    "name": "floriplugins/floatconnect-premium",
+    "description": "Premium version of FloatConnect with additional contact options and advanced features",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Flori"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "FloriPlugins\\FloatConnectPremium\\": "includes/"
+        }
+    },
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.2",
+        "wp-coding-standards/wpcs": "^3.4",
+        "phpcompatibility/php-compatibility": "^9.3"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}
