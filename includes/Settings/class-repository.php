@@ -18,8 +18,6 @@ final class Repository {
 
 	/**
 	 * WordPress option name.
-	 *
-	 * @var string
 	 */
 	private const OPTION_NAME = 'floatconnect_settings';
 
@@ -38,30 +36,10 @@ final class Repository {
 			$saved = array();
 		}
 
-		$defaults = Defaults::all();
-
-		/*
-		 * Merge saved settings with defaults.
-		 */
-		$settings = array_replace_recursive(
-			$defaults,
+		return array_replace_recursive(
+			Defaults::all(),
 			$saved
 		);
-
-		/*
-		 * Contacts are user-managed.
-		 *
-		 * If contacts have been explicitly saved, use them exactly as
-		 * stored. Do not merge them with default contacts because removed
-		 * contacts must stay removed.
-		 */
-		if ( array_key_exists( 'contacts', $saved ) ) {
-			$settings['contacts'] = is_array( $saved['contacts'] )
-				? $saved['contacts']
-				: array();
-		}
-
-		return $settings;
 	}
 
 	/**

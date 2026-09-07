@@ -1,6 +1,6 @@
 {
-    "name": "floriplugins/floatconnect-premium",
-    "description": "Premium version of FloatConnect with additional contact options and advanced features",
+    "name": "floriplugins/floatconnect",
+    "description": "Floating contact button for WordPress",
     "type": "wordpress-plugin",
     "license": "GPL-2.0-or-later",
     "authors": [
@@ -11,7 +11,7 @@
     "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
-            "FloriPlugins\\FloatConnectPremium\\": "includes/"
+            "FloriPlugins\\FloatConnect\\": "includes/"
         }
     },
     "require-dev": {
