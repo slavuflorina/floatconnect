@@ -2,14 +2,14 @@
 /**
  * Frontend functionality.
  *
- * @package FloatConnect
+ * @package Fcon
  */
 
 declare( strict_types=1 );
 
-namespace FloriPlugins\FloatConnect\Frontend;
+namespace FloriPlugins\Fcon\Frontend;
 
-use FloriPlugins\FloatConnect\Settings\Manager;
+use FloriPlugins\Fcon\Settings\Manager;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -129,27 +129,27 @@ final class Frontend {
 		);
 
 		$classes = array(
-			'fc',
-			'fc--single',
-			'fc--' . sanitize_html_class( $position ),
+			'fcon',
+			'fcon--single',
+			'fcon--' . sanitize_html_class( $position ),
 		);
 
 		if ( 'none' !== $animation ) {
-			$classes[] = 'fc--animation-' . sanitize_html_class(
+			$classes[] = 'fcon--animation-' . sanitize_html_class(
 				$animation
 			);
 		}
 
 		if ( ! $hover_effect ) {
-			$classes[] = 'fc--no-hover';
+			$classes[] = 'fcon--no-hover';
 		}
 
-		$classes[] = 'fc--shadow-' . sanitize_html_class(
+		$classes[] = 'fcon--shadow-' . sanitize_html_class(
 			$shadow
 		);
 
 		$style = sprintf(
-			'--fc-size:%dpx;--fc-icon-size:%dpx;--fc-bottom:%dpx;--fc-side:%dpx;--fc-radius:%d%%;--fc-z:%d;',
+			'--fcon-size:%dpx;--fcon-icon-size:%dpx;--fcon-bottom:%dpx;--fcon-side:%dpx;--fcon-radius:%d%%;--fcon-z:%d;',
 			$button_size,
 			$icon_size,
 			$bottom_offset,
@@ -225,7 +225,7 @@ final class Frontend {
 		);
 
 		if ( in_array( $type, $allowed_icons, true ) ) {
-			$icon_file = FLOATCONNECT_PATH
+			$icon_file = FCON_PATH
 				. 'includes/Frontend/Icons/'
 				. sanitize_file_name( $type )
 				. '.php';
@@ -234,17 +234,17 @@ final class Frontend {
 		?>
 
 		<a
-			class="fc__contact fc__contact--single"
+			class="fcon__contact fcon__contact--single"
 			href="<?php echo esc_url( $href ); ?>"
 			aria-label="<?php echo esc_attr( $aria_label ); ?>"
-			<?php if ( 'email' !== $type && 'phone' !== $type ) : ?>
-				target="_blank"
-				rel="noopener noreferrer"
-			<?php endif; ?>
+		<?php if ( 'email' !== $type && 'phone' !== $type ) : ?>
+			target="_blank"
+			rel="noopener noreferrer"
+		<?php endif; ?>
 		>
 
 			<span
-				class="fc__icon"
+				class="fcon__icon"
 				aria-hidden="true"
 			>
 				<?php

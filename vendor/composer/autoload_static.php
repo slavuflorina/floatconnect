@@ -13,7 +13,7 @@ class ComposerStaticInit98319746ea449b9dd7d67e91e50d6cca
         ),
         'F' => 
         array (
-            'FloriPlugins\\FloatConnectPremium\\' => 33,
+            'FloriPlugins\\Fcon\\' => 18,
         ),
     );
 
@@ -22,7 +22,7 @@ class ComposerStaticInit98319746ea449b9dd7d67e91e50d6cca
         array (
             0 => __DIR__ . '/..' . '/dealerdirect/phpcodesniffer-composer-installer/src',
         ),
-        'FloriPlugins\\FloatConnectPremium\\' => 
+        'FloriPlugins\\Fcon\\' => 
         array (
             0 => __DIR__ . '/../..' . '/includes',
         ),

@@ -1,7 +1,7 @@
 /**
  * FloatConnect admin styles.
  *
- * @package FloatConnect
+ * @package Fcon
  */
 
 
@@ -9,13 +9,13 @@
  * Base
  * --------------------------------------------------------- */
 
-.fc-wrap {
+.fcon-wrap {
 	max-width: 1100px;
 }
 
-.fc-wrap *,
-.fc-wrap *::before,
-.fc-wrap *::after {
+.fcon-wrap *,
+.fcon-wrap *::before,
+.fcon-wrap *::after {
 	box-sizing: border-box;
 }
 
@@ -24,7 +24,7 @@
  * Cards
  * --------------------------------------------------------- */
 
-.fc-card {
+.fcon-card {
 	margin-top: 20px;
 	padding: 24px;
 
@@ -36,14 +36,14 @@
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
-.fc-card h2 {
+.fcon-card h2 {
 	margin: 0 0 20px;
 
 	font-size: 20px;
 	line-height: 1.3;
 }
 
-.fc-card h3 {
+.fcon-card h3 {
 	margin: 28px 0 16px;
 
 	padding-bottom: 8px;
@@ -59,15 +59,15 @@
  * Fields
  * --------------------------------------------------------- */
 
-.fc-field {
+.fcon-field {
 	margin-bottom: 18px;
 }
 
-.fc-field:last-child {
+.fcon-field:last-child {
 	margin-bottom: 0;
 }
 
-.fc-label {
+.fcon-label {
 	display: block;
 
 	margin-bottom: 6px;
@@ -79,17 +79,17 @@
 	color: #1d2327;
 }
 
-.fc-input {
+.fcon-input {
 	width: 100%;
 	max-width: 500px;
 }
 
-.fc-field input[type="checkbox"],
-.fc-field input[type="radio"] {
+.fcon-field input[type="checkbox"],
+.fcon-field input[type="radio"] {
 	margin-right: 6px;
 }
 
-.fc-field > label:not(.fc-label) {
+.fcon-field > label:not(.fcon-label) {
 	display: inline-flex;
 	align-items: center;
 	gap: 6px;
@@ -102,7 +102,7 @@
  * Actions
  * --------------------------------------------------------- */
 
-.fc-actions {
+.fcon-actions {
 	display: flex;
 	align-items: center;
 	flex-wrap: wrap;
@@ -117,7 +117,7 @@
  * Settings notices
  * --------------------------------------------------------- */
 
-.fc-wrap .notice {
+.fcon-wrap .notice {
 	margin-top: 20px;
 }
 
@@ -126,7 +126,7 @@
  * Description
  * --------------------------------------------------------- */
 
-.fc-wrap .description {
+.fcon-wrap .description {
 	color: #646970;
 }
 
@@ -135,7 +135,7 @@
  * Free contact
  * --------------------------------------------------------- */
 
-.fc-contact-row {
+.fcon-contact-row {
 	display: grid;
 
 	grid-template-columns:
@@ -155,11 +155,11 @@
 	border-radius: 8px;
 }
 
-.fc-contact-row .fc-contact-field {
+.fcon-contact-row .fcon-contact-field {
 	min-width: 0;
 }
 
-.fc-contact-row .fc-label {
+.fcon-contact-row .fcon-label {
 	display: block;
 
 	margin-bottom: 8px;
@@ -169,7 +169,7 @@
 	line-height: 1.4;
 }
 
-.fc-contact-row .fc-input {
+.fcon-contact-row .fcon-input {
 	width: 100%;
 	max-width: 500px;
 }
@@ -181,9 +181,9 @@
 
 @media (prefers-reduced-motion: reduce) {
 
-	.fc-wrap *,
-	.fc-wrap *::before,
-	.fc-wrap *::after {
+	.fcon-wrap *,
+	.fcon-wrap *::before,
+	.fcon-wrap *::after {
 		transition-duration: 0.01ms !important;
 	}
 }

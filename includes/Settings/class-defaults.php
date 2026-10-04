@@ -2,12 +2,12 @@
 /**
  * Default FloatConnect plugin settings.
  *
- * @package FloatConnect
+ * @package Fcon
  */
 
 declare( strict_types=1 );
 
-namespace FloriPlugins\FloatConnect\Settings;
+namespace FloriPlugins\Fcon\Settings;
 
 defined( 'ABSPATH' ) || exit;
 

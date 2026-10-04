@@ -1,20 +1,20 @@
 <?php
 /**
- * FloatConnect admin functionality.
+ * Fcon admin functionality.
  *
- * @package FloatConnect
+ * @package Fcon
  */
 
 declare( strict_types=1 );
 
-namespace FloriPlugins\FloatConnect\Admin;
+namespace FloriPlugins\Fcon\Admin;
 
-use FloriPlugins\FloatConnect\Admin\Pages\Dashboard;
+use FloriPlugins\Fcon\Admin\Pages\Dashboard;
 
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Handles FloatConnect admin functionality.
+ * Handles Fcon admin functionality.
  */
 final class Admin {
 
@@ -47,7 +47,7 @@ final class Admin {
 	}
 
 	/**
-	 * Register FloatConnect admin menu.
+	 * Register Fcon admin menu.
 	 *
 	 * @return void
 	 */

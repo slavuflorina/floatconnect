@@ -2,12 +2,12 @@
 /**
  * FloatConnect settings manager.
  *
- * @package FloatConnect
+ * @package Fcon
  */
 
 declare( strict_types=1 );
 
-namespace FloriPlugins\FloatConnect\Settings;
+namespace FloriPlugins\Fcon\Settings;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -75,7 +75,7 @@ final class Manager {
 		$sanitized = $this->sanitizer->sanitize( $settings );
 
 		$errors = get_settings_errors(
-			'floatconnect'
+			'fcon'
 		);
 
 		if ( ! empty( $errors ) ) {

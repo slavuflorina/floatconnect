@@ -2,14 +2,14 @@
 /**
  * WhatsApp icon.
  *
- * @package FloatConnect
+ * @package Fcon
  */
 
 defined( 'ABSPATH' ) || exit;
 ?>
 
 <svg
-	class="fc-icon-svg"
+	class="fcon-icon-svg"
 	viewBox="0 0 24 24"
 	aria-hidden="true"
 	focusable="false"

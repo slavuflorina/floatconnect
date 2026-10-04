@@ -2,12 +2,12 @@
 /**
  * FloatConnect settings repository.
  *
- * @package FloatConnect
+ * @package Fcon
  */
 
 declare( strict_types=1 );
 
-namespace FloriPlugins\FloatConnect\Settings;
+namespace FloriPlugins\Fcon\Settings;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -19,7 +19,7 @@ final class Repository {
 	/**
 	 * WordPress option name.
 	 */
-	private const OPTION_NAME = 'floatconnect_settings';
+	private const OPTION_NAME = 'fcon_settings';
 
 	/**
 	 * Get all settings.

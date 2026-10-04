@@ -2,21 +2,21 @@
 /**
  * Main plugin application.
  *
- * @package FloatConnect
+ * @package Fcon
  */
 
 declare( strict_types=1 );
 
-namespace FloriPlugins\FloatConnect;
+namespace FloriPlugins\Fcon;
 
-use FloriPlugins\FloatConnect\Admin\Admin;
-use FloriPlugins\FloatConnect\Assets\Assets;
-use FloriPlugins\FloatConnect\Frontend\Frontend;
+use FloriPlugins\Fcon\Admin\Admin;
+use FloriPlugins\Fcon\Assets\Assets;
+use FloriPlugins\Fcon\Frontend\Frontend;
 
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Boots the FloatConnect plugin components.
+ * Boots the Fcon plugin components.
  */
 final class Application {
 

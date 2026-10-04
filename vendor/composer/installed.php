@@ -1,6 +1,6 @@
 <?php return array(
     'root' => array(
-        'name' => 'floriplugins/floatconnect-premium',
+        'name' => 'floriplugins/floatconnect',
         'pretty_version' => '1.0.0+no-version-set',
         'version' => '1.0.0.0',
         'reference' => null,
@@ -19,7 +19,7 @@
             'aliases' => array(),
             'dev_requirement' => true,
         ),
-        'floriplugins/floatconnect-premium' => array(
+        'floriplugins/floatconnect' => array(
             'pretty_version' => '1.0.0+no-version-set',
             'version' => '1.0.0.0',
             'reference' => null,

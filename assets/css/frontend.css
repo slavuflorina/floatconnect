@@ -1,7 +1,7 @@
 /**
  * FloatConnect frontend styles.
  *
- * @package FloatConnect
+ * @package Fcon
  */
 
 
@@ -9,20 +9,20 @@
  * Base
  * --------------------------------------------------------- */
 
-.fc {
+.fcon {
 	position: fixed;
-	z-index: var(--fc-z, 999999);
+	z-index: var(--fcon-z, 999999);
 	box-sizing: border-box;
 }
 
-.fc--bottom-right {
-	right: var(--fc-side, 24px);
-	bottom: var(--fc-bottom, 24px);
+.fcon--bottom-right {
+	right: var(--fcon-side, 24px);
+	bottom: var(--fcon-bottom, 24px);
 }
 
-.fc--bottom-left {
-	left: var(--fc-side, 24px);
-	bottom: var(--fc-bottom, 24px);
+.fcon--bottom-left {
+	left: var(--fcon-side, 24px);
+	bottom: var(--fcon-bottom, 24px);
 }
 
 
@@ -30,9 +30,9 @@
  * Contact
  * --------------------------------------------------------- */
 
-.fc__contact {
-	background: var(--fc-contact-bg, #25D366);
-	color: var(--fc-contact-icon, #FFFFFF);
+.fcon__contact {
+	background: var(--fcon-contact-bg, #25D366);
+	color: var(--fcon-contact-icon, #FFFFFF);
 	text-decoration: none;
 	box-sizing: border-box;
 
@@ -49,34 +49,34 @@
  * Single button
  * --------------------------------------------------------- */
 
-.fc__contact--single {
+.fcon__contact--single {
 	position: relative;
 
 	display: flex;
 	align-items: center;
 	justify-content: center;
 
-	width: var(--fc-size, 60px);
-	height: var(--fc-size, 60px);
+	width: var(--fcon-size, 60px);
+	height: var(--fcon-size, 60px);
 
 	padding: 0;
 	margin: 0;
 
-	border-radius: var(--fc-radius, 50%);
+	border-radius: var(--fcon-radius, 50%);
 
-	background: var(--fc-contact-bg, #25D366);
-	color: var(--fc-contact-icon, #FFFFFF);
+	background: var(--fcon-contact-bg, #25D366);
+	color: var(--fcon-contact-icon, #FFFFFF);
 
 	box-sizing: border-box;
 }
 
-.fc__contact--single:hover {
-	background: var(--fc-contact-hover-bg, #20BD5A);
-	color: var(--fc-contact-hover-icon, #FFFFFF);
+.fcon__contact--single:hover {
+	background: var(--fcon-contact-hover-bg, #20BD5A);
+	color: var(--fcon-contact-hover-icon, #FFFFFF);
 	text-decoration: none;
 }
 
-.fc__contact--single:focus-visible {
+.fcon__contact--single:focus-visible {
 	outline: 2px solid currentColor;
 	outline-offset: 3px;
 }
@@ -86,11 +86,11 @@
  * Disable hover
  * --------------------------------------------------------- */
 
-.fc--no-hover .fc__contact:hover {
+.fcon--no-hover .fcon__contact:hover {
 	opacity: 1;
 }
 
-.fc--no-hover .fc__contact {
+.fcon--no-hover .fcon__contact {
 	animation: none !important;
 }
 
@@ -99,7 +99,7 @@
  * Icon
  * --------------------------------------------------------- */
 
-.fc__icon {
+.fcon__icon {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -111,11 +111,11 @@
 	flex-shrink: 0;
 }
 
-.fc-icon-svg {
+.fcon-icon-svg {
 	display: block;
 
-	width: var(--fc-icon-size, 32px);
-	height: var(--fc-icon-size, 32px);
+	width: var(--fcon-icon-size, 32px);
+	height: var(--fcon-icon-size, 32px);
 
 	fill: currentColor;
 	color: inherit;
@@ -128,16 +128,16 @@
  * Shadows
  * --------------------------------------------------------- */
 
-.fc--shadow-none .fc__contact--single {
+.fcon--shadow-none .fcon__contact--single {
 	box-shadow: none;
 }
 
-.fc--shadow-soft .fc__contact--single {
+.fcon--shadow-soft .fcon__contact--single {
 	box-shadow:
 		0 4px 14px rgba(0, 0, 0, 0.14);
 }
 
-.fc--shadow-strong .fc__contact--single {
+.fcon--shadow-strong .fcon__contact--single {
 	box-shadow:
 		0 8px 30px rgba(0, 0, 0, 0.24);
 }
@@ -147,7 +147,7 @@
  * Animation - Pulse
  * --------------------------------------------------------- */
 
-@keyframes fc-pulse {
+@keyframes fcon-pulse {
 
 	0% {
 		transform: scale(1);
@@ -162,9 +162,9 @@
 	}
 }
 
-.fc--animation-pulse .fc__contact--single {
+.fcon--animation-pulse .fcon__contact--single {
 	animation:
-		fc-pulse 2s ease-in-out infinite;
+		fcon-pulse 2s ease-in-out infinite;
 }
 
 
@@ -172,7 +172,7 @@
  * Animation - Bounce
  * --------------------------------------------------------- */
 
-@keyframes fc-bounce {
+@keyframes fcon-bounce {
 
 	0%,
 	20%,
@@ -191,9 +191,9 @@
 	}
 }
 
-.fc--animation-bounce .fc__contact--single {
+.fcon--animation-bounce .fcon__contact--single {
 	animation:
-		fc-bounce 2s ease-in-out infinite;
+		fcon-bounce 2s ease-in-out infinite;
 }
 
 
@@ -203,14 +203,14 @@
 
 @media (max-width: 767px) {
 
-	.fc__contact--single {
-		width: var(--fc-size, 60px);
-		height: var(--fc-size, 60px);
+	.fcon__contact--single {
+		width: var(--fcon-size, 60px);
+		height: var(--fcon-size, 60px);
 	}
 
-	.fc-icon-svg {
-		width: var(--fc-icon-size, 32px);
-		height: var(--fc-icon-size, 32px);
+	.fcon-icon-svg {
+		width: var(--fcon-icon-size, 32px);
+		height: var(--fcon-icon-size, 32px);
 	}
 }
 
@@ -221,9 +221,9 @@
 
 @media (prefers-reduced-motion: reduce) {
 
-	.fc *,
-	.fc *::before,
-	.fc *::after {
+	.fcon *,
+	.fcon *::before,
+	.fcon *::after {
 		animation-duration: 0.01ms !important;
 		animation-iteration-count: 1 !important;
 
