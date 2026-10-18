@@ -2,34 +2,34 @@
 /**
  * Frontend functionality.
  *
- * @package Fcon
+ * @package Floatconnect
  */
 
 declare( strict_types=1 );
 
-namespace FloriPlugins\Fcon\Frontend;
+namespace FloriPlugins\Floatconnect\Frontend;
 
-use FloriPlugins\Fcon\Settings\Manager;
+use FloriPlugins\Floatconnect\Settings\FLOATCONNECT_Manager;
 
 defined( 'ABSPATH' ) || exit;
 
 /**
  * Handles frontend output.
  */
-final class Frontend {
+final class FLOATCONNECT_Frontend {
 
 	/**
 	 * Settings manager.
 	 *
-	 * @var Manager
+	 * @var FLOATCONNECT_Manager
 	 */
-	private Manager $manager;
+	private FLOATCONNECT_Manager $manager;
 
 	/**
 	 * Constructor.
 	 */
 	public function __construct() {
-		$this->manager = new Manager();
+		$this->manager = new FLOATCONNECT_Manager();
 	}
 
 	/**
@@ -129,27 +129,27 @@ final class Frontend {
 		);
 
 		$classes = array(
-			'fcon',
-			'fcon--single',
-			'fcon--' . sanitize_html_class( $position ),
+			'floatconnect',
+			'floatconnect--single',
+			'floatconnect--' . sanitize_html_class( $position ),
 		);
 
 		if ( 'none' !== $animation ) {
-			$classes[] = 'fcon--animation-' . sanitize_html_class(
+			$classes[] = 'floatconnect--animation-' . sanitize_html_class(
 				$animation
 			);
 		}
 
 		if ( ! $hover_effect ) {
-			$classes[] = 'fcon--no-hover';
+			$classes[] = 'floatconnect--no-hover';
 		}
 
-		$classes[] = 'fcon--shadow-' . sanitize_html_class(
+		$classes[] = 'floatconnect--shadow-' . sanitize_html_class(
 			$shadow
 		);
 
 		$style = sprintf(
-			'--fcon-size:%dpx;--fcon-icon-size:%dpx;--fcon-bottom:%dpx;--fcon-side:%dpx;--fcon-radius:%d%%;--fcon-z:%d;',
+			'--floatconnect-size:%dpx;--floatconnect-icon-size:%dpx;--floatconnect-bottom:%dpx;--floatconnect-side:%dpx;--floatconnect-radius:%d%%;--floatconnect-z:%d;',
 			$button_size,
 			$icon_size,
 			$bottom_offset,
@@ -225,7 +225,7 @@ final class Frontend {
 		);
 
 		if ( in_array( $type, $allowed_icons, true ) ) {
-			$icon_file = FCON_PATH
+			$icon_file = FLOATCONNECT_PATH
 				. 'includes/Frontend/Icons/'
 				. sanitize_file_name( $type )
 				. '.php';
@@ -234,7 +234,7 @@ final class Frontend {
 		?>
 
 		<a
-			class="fcon__contact fcon__contact--single"
+			class="floatconnect__contact floatconnect__contact--single"
 			href="<?php echo esc_url( $href ); ?>"
 			aria-label="<?php echo esc_attr( $aria_label ); ?>"
 		<?php if ( 'email' !== $type && 'phone' !== $type ) : ?>
@@ -244,7 +244,7 @@ final class Frontend {
 		>
 
 			<span
-				class="fcon__icon"
+				class="floatconnect__icon"
 				aria-hidden="true"
 			>
 				<?php

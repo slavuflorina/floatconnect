@@ -2,19 +2,19 @@
 /**
  * FloatConnect settings sanitizer.
  *
- * @package Fcon
+ * @package Floatconnect
  */
 
 declare( strict_types=1 );
 
-namespace FloriPlugins\Fcon\Settings;
+namespace FloriPlugins\Floatconnect\Settings;
 
 defined( 'ABSPATH' ) || exit;
 
 /**
  * Sanitizes FloatConnect plugin settings.
  */
-final class Sanitizer {
+final class FLOATCONNECT_Sanitizer {
 
 	/**
 	 * Sanitize settings.
@@ -24,7 +24,7 @@ final class Sanitizer {
 	 * @return array<string, mixed>
 	 */
 	public function sanitize( array $data ): array {
-		$settings = Defaults::all();
+		$settings = FLOATCONNECT_Defaults::all();
 
 		/*
 		 * General.
@@ -159,7 +159,7 @@ final class Sanitizer {
 		 */
 		if ( '' === $value ) {
 			add_settings_error(
-				'fcon',
+				'floatconnect',
 				'contact_required',
 				esc_html__(
 					'Contact value is required.',
@@ -171,7 +171,7 @@ final class Sanitizer {
 
 			if ( '' === $value || ! is_email( $value ) ) {
 				add_settings_error(
-					'fcon',
+					'floatconnect',
 					'invalid_email',
 					esc_html__(
 						'Please enter a valid email address.',
@@ -184,7 +184,7 @@ final class Sanitizer {
 
 			if ( ! preg_match( '/^\+[1-9][0-9]{6,14}$/', $value ) ) {
 				add_settings_error(
-					'fcon',
+					'floatconnect',
 					'invalid_whatsapp',
 					esc_html__(
 						'Please enter a valid international phone number for WhatsApp, for example +40722111222.',
@@ -197,7 +197,7 @@ final class Sanitizer {
 
 			if ( ! preg_match( '/^\+?[0-9]{7,15}$/', $value ) ) {
 				add_settings_error(
-					'fcon',
+					'floatconnect',
 					'invalid_phone',
 					esc_html__(
 						'Please enter a valid phone number.',
@@ -210,7 +210,7 @@ final class Sanitizer {
 
 			if ( '' === $value ) {
 				add_settings_error(
-					'fcon',
+					'floatconnect',
 					'invalid_custom',
 					esc_html__(
 						'Please enter a valid URL.',

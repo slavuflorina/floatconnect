@@ -2,19 +2,19 @@
 /**
  * Plugin class autoloader.
  *
- * @package Fcon
+ * @package Floatconnect
  */
 
 declare( strict_types=1 );
 
-namespace FloriPlugins\Fcon;
+namespace FloriPlugins\Floatconnect;
 
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Registers the Fcon class autoloader.
+ * Registers the Floatconnect class autoloader.
  */
-final class Autoloader {
+final class FLOATCONNECT_Autoloader {
 
 	/**
 	 * Register the autoloader.
@@ -24,7 +24,7 @@ final class Autoloader {
 	public static function register(): void {
 		spl_autoload_register(
 			static function ( string $class_name ): void {
-				$prefix = 'FloriPlugins\\Fcon\\';
+				$prefix = 'FloriPlugins\\Floatconnect\\';
 
 				if (
 					0 !== strncmp(
@@ -46,14 +46,14 @@ final class Autoloader {
 				$class_name = array_pop( $parts );
 
 				$file_name = 'class-' . strtolower(
-					preg_replace(
-						'/(?<!^)[A-Z]/',
-						'-$0',
+					str_replace(
+						'_',
+						'-',
 						$class_name
 					)
 				) . '.php';
 
-				$path = FCON_PATH . 'includes/';
+				$path = FLOATCONNECT_PATH . 'includes/';
 
 				if ( ! empty( $parts ) ) {
 					$path .= implode(

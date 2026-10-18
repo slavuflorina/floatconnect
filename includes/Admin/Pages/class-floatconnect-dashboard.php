@@ -2,34 +2,34 @@
 /**
  * Dashboard page.
  *
- * @package Fcon
+ * @package Floatconnect
  */
 
 declare( strict_types=1 );
 
-namespace FloriPlugins\Fcon\Admin\Pages;
+namespace FloriPlugins\Floatconnect\Admin\Pages;
 
-use FloriPlugins\Fcon\Settings\Manager;
+use FloriPlugins\Floatconnect\Settings\FLOATCONNECT_Manager;
 
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Handles the Fcon settings page.
+ * Handles the Floatconnect settings page.
  */
-final class Dashboard {
+final class FLOATCONNECT_Dashboard {
 
 	/**
 	 * Settings manager.
 	 *
-	 * @var Manager
+	 * @var FLOATCONNECT_Manager
 	 */
-	private Manager $manager;
+	private FLOATCONNECT_Manager $manager;
 
 	/**
 	 * Constructor.
 	 */
 	public function __construct() {
-		$this->manager = new Manager();
+		$this->manager = new FLOATCONNECT_Manager();
 	}
 
 	/**
@@ -54,25 +54,25 @@ final class Dashboard {
 		/*
 		 * Reset settings.
 		 */
-		if ( isset( $_POST['fcon_reset'] ) ) {
+		if ( isset( $_POST['floatconnect_reset'] ) ) {
 			check_admin_referer(
-				'fcon_reset',
-				'fcon_reset_nonce'
+				'floatconnect_reset',
+				'floatconnect_reset_nonce'
 			);
 
 			$reset = $this->manager->reset();
 
 			if ( $reset ) {
 				add_settings_error(
-					'fcon',
-					'fcon_reset',
+					'floatconnect',
+					'floatconnect_reset',
 					__( 'Settings reset to defaults.', 'floatconnect' ),
 					'updated'
 				);
 			} else {
 				add_settings_error(
-					'fcon',
-					'fcon_reset_failed',
+					'floatconnect',
+					'floatconnect_reset_failed',
 					__( 'Settings could not be reset.', 'floatconnect' ),
 					'error'
 				);
@@ -84,31 +84,31 @@ final class Dashboard {
 		/*
 		 * Save settings.
 		 */
-		if ( ! isset( $_POST['fcon_save'] ) ) {
+		if ( ! isset( $_POST['floatconnect_save'] ) ) {
 			return;
 		}
 
 		check_admin_referer(
-			'fcon_save',
-			'fcon_nonce'
+			'floatconnect_save',
+			'floatconnect_nonce'
 		);
 
 		$data = array();
 
 		if (
-			isset( $_POST['fcon'] )
-			&& is_array( $_POST['fcon'] )
+			isset( $_POST['floatconnect'] )
+			&& is_array( $_POST['floatconnect'] )
 		) {
 			// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Sanitized by Settings\Sanitizer.
-			$data = wp_unslash( $_POST['fcon'] );
+			$data = wp_unslash( $_POST['floatconnect'] );
 		}
 
 		$saved = $this->manager->save( $data );
 
 		if ( $saved ) {
 			add_settings_error(
-				'fcon',
-				'fcon_saved',
+				'floatconnect',
+				'floatconnect_saved',
 				__( 'Settings saved.', 'floatconnect' ),
 				'updated'
 			);
@@ -136,30 +136,30 @@ final class Dashboard {
 
 		?>
 
-	<div class="wrap fcon-wrap">
+	<div class="wrap floatconnect-wrap">
 
 		<h1>
 			<?php esc_html_e( 'FloatConnect', 'floatconnect' ); ?>
 		</h1>
 
-		<?php settings_errors( 'fcon' ); ?>
+		<?php settings_errors( 'floatconnect' ); ?>
 
 		<form method="post">
 
-			<?php wp_nonce_field( 'fcon_save', 'fcon_nonce' ); ?>
+			<?php wp_nonce_field( 'floatconnect_save', 'floatconnect_nonce' ); ?>
 
-			<div class="fcon-card">
+			<div class="floatconnect-card">
 
 				<h2>
 					<?php esc_html_e( 'General', 'floatconnect' ); ?>
 				</h2>
 
-				<div class="fcon-field">
+				<div class="floatconnect-field">
 
 					<label>
 						<input
 							type="checkbox"
-							name="fcon[enabled]"
+							name="floatconnect[enabled]"
 							value="1"
 							<?php checked( ! empty( $settings['enabled'] ) ); ?>
 						>
@@ -169,19 +169,19 @@ final class Dashboard {
 
 				</div>
 
-				<div class="fcon-field">
+				<div class="floatconnect-field">
 
 					<label
-						class="fcon-label"
-						for="fcon-position"
+						class="floatconnect-label"
+						for="floatconnect-position"
 					>
 						<?php esc_html_e( 'Position', 'floatconnect' ); ?>
 					</label>
 
 					<select
-						id="fcon-position"
-						class="fcon-input"
-						name="fcon[position]"
+						id="floatconnect-position"
+						class="floatconnect-input"
+						name="floatconnect[position]"
 					>
 
 						<option
@@ -204,7 +204,7 @@ final class Dashboard {
 
 			</div>
 
-			<div class="fcon-card">
+			<div class="floatconnect-card">
 
 				<h2>
 					<?php esc_html_e( 'Appearance', 'floatconnect' ); ?>
@@ -214,67 +214,67 @@ final class Dashboard {
 					<?php esc_html_e( 'Button', 'floatconnect' ); ?>
 				</h3>
 
-				<div class="fcon-field">
+				<div class="floatconnect-field">
 
 					<label
-						class="fcon-label"
-						for="fcon-button-size"
+						class="floatconnect-label"
+						for="floatconnect-button-size"
 					>
 						<?php esc_html_e( 'Button size (px)', 'floatconnect' ); ?>
 					</label>
 
 					<input
-						id="fcon-button-size"
-						class="fcon-input"
+						id="floatconnect-button-size"
+						class="floatconnect-input"
 						type="number"
 						min="40"
 						max="120"
 						step="1"
-						name="fcon[button_size]"
+						name="floatconnect[button_size]"
 						value="<?php echo esc_attr( $settings['button_size'] ?? 60 ); ?>"
 					>
 
 				</div>
 
-				<div class="fcon-field">
+				<div class="floatconnect-field">
 
 					<label
-						class="fcon-label"
-						for="fcon-icon-size"
+						class="floatconnect-label"
+						for="floatconnect-icon-size"
 					>
 						<?php esc_html_e( 'Icon size (px)', 'floatconnect' ); ?>
 					</label>
 
 					<input
-						id="fcon-icon-size"
-						class="fcon-input"
+						id="floatconnect-icon-size"
+						class="floatconnect-input"
 						type="number"
 						min="12"
 						max="80"
 						step="1"
-						name="fcon[icon_size]"
+						name="floatconnect[icon_size]"
 						value="<?php echo esc_attr( $settings['icon_size'] ?? 32 ); ?>"
 					>
 
 				</div>
 
-				<div class="fcon-field">
+				<div class="floatconnect-field">
 
 					<label
-						class="fcon-label"
-						for="fcon-border-radius"
+						class="floatconnect-label"
+						for="floatconnect-border-radius"
 					>
 						<?php esc_html_e( 'Button radius (%)', 'floatconnect' ); ?>
 					</label>
 
 					<input
-						id="fcon-border-radius"
-						class="fcon-input"
+						id="floatconnect-border-radius"
+						class="floatconnect-input"
 						type="number"
 						min="0"
 						max="50"
 						step="1"
-						name="fcon[border_radius]"
+						name="floatconnect[border_radius]"
 						value="<?php echo esc_attr( $settings['border_radius'] ?? 50 ); ?>"
 					>
 
@@ -288,19 +288,19 @@ final class Dashboard {
 					<?php esc_html_e( 'Effects', 'floatconnect' ); ?>
 				</h3>
 
-				<div class="fcon-field">
+				<div class="floatconnect-field">
 
 					<label
-						class="fcon-label"
-						for="fcon-shadow"
+						class="floatconnect-label"
+						for="floatconnect-shadow"
 					>
 						<?php esc_html_e( 'Shadow', 'floatconnect' ); ?>
 					</label>
 
 					<select
-						id="fcon-shadow"
-						class="fcon-input"
-						name="fcon[shadow]"
+						id="floatconnect-shadow"
+						class="floatconnect-input"
+						name="floatconnect[shadow]"
 					>
 
 						<option
@@ -328,19 +328,19 @@ final class Dashboard {
 
 				</div>
 
-				<div class="fcon-field">
+				<div class="floatconnect-field">
 
 					<label
-						class="fcon-label"
-						for="fcon-animation"
+						class="floatconnect-label"
+						for="floatconnect-animation"
 					>
 						<?php esc_html_e( 'Single button animation', 'floatconnect' ); ?>
 					</label>
 
 					<select
-						id="fcon-animation"
-						class="fcon-input"
-						name="fcon[animation]"
+						id="floatconnect-animation"
+						class="floatconnect-input"
+						name="floatconnect[animation]"
 					>
 
 						<option
@@ -368,12 +368,12 @@ final class Dashboard {
 
 				</div>
 
-				<div class="fcon-field">
+				<div class="floatconnect-field">
 
 					<label>
 						<input
 							type="checkbox"
-							name="fcon[hover_effect]"
+							name="floatconnect[hover_effect]"
 							value="1"
 							<?php checked( ! empty( $settings['hover_effect'] ) ); ?>
 						>
@@ -408,23 +408,23 @@ final class Dashboard {
 
 				foreach ( $spacing_fields as $key => $field ) {
 					?>
-					<div class="fcon-field">
+					<div class="floatconnect-field">
 
 						<label
-							class="fcon-label"
-							for="fcon-<?php echo esc_attr( $key ); ?>"
+							class="floatconnect-label"
+							for="floatconnect-<?php echo esc_attr( $key ); ?>"
 						>
 							<?php echo esc_html( $field['label'] ); ?>
 						</label>
 
 						<input
-							id="fcon-<?php echo esc_attr( $key ); ?>"
-							class="fcon-input"
+							id="floatconnect-<?php echo esc_attr( $key ); ?>"
+							class="floatconnect-input"
 							type="number"
 							min="<?php echo esc_attr( (string) $field['min'] ); ?>"
 							max="<?php echo esc_attr( (string) $field['max'] ); ?>"
 							step="1"
-							name="fcon[<?php echo esc_attr( $key ); ?>]"
+							name="floatconnect[<?php echo esc_attr( $key ); ?>]"
 							value="<?php echo esc_attr( $settings[ $key ] ?? '' ); ?>"
 						>
 
@@ -435,7 +435,7 @@ final class Dashboard {
 
 			</div>
 
-			<div class="fcon-card">
+			<div class="floatconnect-card">
 
 				<h2>
 					<?php esc_html_e( 'Contact', 'floatconnect' ); ?>
@@ -445,12 +445,12 @@ final class Dashboard {
 
 			</div>
 
-			<div class="fcon-actions">
+			<div class="floatconnect-actions">
 
 				<button
 					type="submit"
 					class="button button-primary"
-					name="fcon_save"
+					name="floatconnect_save"
 					value="1"
 				>
 					<?php esc_html_e( 'Save Settings', 'floatconnect' ); ?>
@@ -459,7 +459,7 @@ final class Dashboard {
 				<button
 					type="submit"
 					class="button"
-					name="fcon_reset"
+					name="floatconnect_reset"
 					value="1"
 					onclick="return window.confirm('<?php echo esc_js( __( 'Are you sure you want to reset all settings to their defaults?', 'floatconnect' ) ); ?>');"
 				>
@@ -468,7 +468,7 @@ final class Dashboard {
 
 			</div>
 
-			<?php wp_nonce_field( 'fcon_reset', 'fcon_reset_nonce' ); ?>
+			<?php wp_nonce_field( 'floatconnect_reset', 'floatconnect_reset_nonce' ); ?>
 
 		</form>
 
@@ -510,21 +510,21 @@ final class Dashboard {
 		<?php esc_html_e( 'Configure the contact that will be used by the Single button.', 'floatconnect' ); ?>
 	</p>
 
-	<div class="fcon-contact-row">
+	<div class="floatconnect-contact-row">
 
-		<div class="fcon-contact-field">
+		<div class="floatconnect-contact-field">
 
 			<label
-				class="fcon-label"
-				for="fcon-contact-type"
+				class="floatconnect-label"
+				for="floatconnect-contact-type"
 			>
 				<?php esc_html_e( 'Contact type', 'floatconnect' ); ?>
 			</label>
 
 			<select
-				id="fcon-contact-type"
-				class="fcon-input"
-				name="fcon[contact][type]"
+				id="floatconnect-contact-type"
+				class="floatconnect-input"
+				name="floatconnect[contact][type]"
 			>
 
 				<?php foreach ( $types as $type_key => $type_label ) : ?>
@@ -540,39 +540,39 @@ final class Dashboard {
 
 		</div>
 
-		<div class="fcon-contact-field">
+		<div class="floatconnect-contact-field">
 
 			<label
-				class="fcon-label"
-				for="fcon-contact-label"
+				class="floatconnect-label"
+				for="floatconnect-contact-label"
 			>
 				<?php esc_html_e( 'Label', 'floatconnect' ); ?>
 			</label>
 
 			<input
-				id="fcon-contact-label"
-				class="fcon-input"
+				id="floatconnect-contact-label"
+				class="floatconnect-input"
 				type="text"
-				name="fcon[contact][label]"
+				name="floatconnect[contact][label]"
 				value="<?php echo esc_attr( $label ); ?>"
 			>
 
 		</div>
 
-		<div class="fcon-contact-field">
+		<div class="floatconnect-contact-field">
 
 			<label
-				class="fcon-label"
-				for="fcon-contact-value"
+				class="floatconnect-label"
+				for="floatconnect-contact-value"
 			>
 				<?php esc_html_e( 'Value', 'floatconnect' ); ?>
 			</label>
 
 			<input
-				id="fcon-contact-value"
-				class="fcon-input"
+				id="floatconnect-contact-value"
+				class="floatconnect-input"
 				type="text"
-				name="fcon[contact][value]"
+				name="floatconnect[contact][value]"
 				value="<?php echo esc_attr( $value ); ?>"
 			>
 

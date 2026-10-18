@@ -11,7 +11,7 @@
  * Text Domain: floatconnect
  * Domain Path: /languages
  *
- * @package Fcon
+ * @package Floatconnect
  */
 
 declare( strict_types=1 );
@@ -21,27 +21,27 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Freemius integration.
  */
-if ( function_exists( 'fcon_fs' ) ) {
-	fcon_fs()->set_basename( false, __FILE__ );
+if ( function_exists( 'floatconnect_fs' ) ) {
+	floatconnect_fs()->set_basename( false, __FILE__ );
 } else {
 
-	if ( ! function_exists( 'fcon_fs' ) ) {
+	if ( ! function_exists( 'floatconnect_fs' ) ) {
 
 		/**
 		 * Create a helper function for easy SDK access.
 		 *
 		 * @return object
 		 */
-		function fcon_fs() {
-			global $fcon_fs;
+		function floatconnect_fs() {
+			global $floatconnect_fs;
 
-			if ( ! isset( $fcon_fs ) ) {
+			if ( ! isset( $floatconnect_fs ) ) {
 				/**
 				 * Include Freemius SDK.
 				 */
 				require_once __DIR__ . '/vendor/freemius/start.php';
 
-				$fcon_fs = fs_dynamic_init(
+				$floatconnect_fs = fs_dynamic_init(
 					array(
 						'id'               => '38182',
 						'slug'             => 'floatconnect',
@@ -62,55 +62,55 @@ if ( function_exists( 'fcon_fs' ) ) {
 				);
 			}
 
-			return $fcon_fs;
+			return $floatconnect_fs;
 		}
 
 		/**
 		 * Initialize Freemius.
 		 */
-		fcon_fs();
+		floatconnect_fs();
 
 		/**
 		 * Clean up plugin data after uninstall.
 		 *
 		 * @return void
 		 */
-		function fcon_fs_uninstall_cleanup(): void {
-			delete_option( 'fcon_settings' );
+		function floatconnect_fs_uninstall_cleanup(): void {
+			delete_option( 'floatconnect_settings' );
 		}
 
-		fcon_fs()->add_action(
+		floatconnect_fs()->add_action(
 			'after_uninstall',
-			'fcon_fs_uninstall_cleanup'
+			'floatconnect_fs_uninstall_cleanup'
 		);
 
 		/**
 		 * Signal that SDK was initiated.
 		 */
-		do_action( 'fcon_fs_loaded' );
+		do_action( 'floatconnect_fs_loaded' );
 	}
 
 	/**
 	 * Plugin version.
 	 */
-	define( 'FCON_VERSION', '1.0.0' );
+	define( 'FLOATCONNECT_VERSION', '1.0.0' );
 
 	/**
 	 * Plugin path.
 	 */
-	define( 'FCON_PATH', plugin_dir_path( __FILE__ ) );
+	define( 'FLOATCONNECT_PATH', plugin_dir_path( __FILE__ ) );
 
 	/**
 	 * Plugin URL.
 	 */
-	define( 'FCON_URL', plugin_dir_url( __FILE__ ) );
+	define( 'FLOATCONNECT_URL', plugin_dir_url( __FILE__ ) );
 
 	/**
 	 * Load the autoloader.
 	 */
-	require_once FCON_PATH . 'includes/class-autoloader.php';
+	require_once FLOATCONNECT_PATH . 'includes/class-floatconnect-autoloader.php';
 
-	FloriPlugins\Fcon\Autoloader::register();
+	FloriPlugins\Floatconnect\FLOATCONNECT_Autoloader::register();
 
 	/**
 	 * Boot the plugin.
@@ -118,7 +118,7 @@ if ( function_exists( 'fcon_fs' ) ) {
 	add_action(
 		'plugins_loaded',
 		static function (): void {
-			$application = new FloriPlugins\Fcon\Application();
+			$application = new FloriPlugins\Floatconnect\FLOATCONNECT_Application();
 			$application->boot();
 		}
 	);

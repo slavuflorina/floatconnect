@@ -1,7 +1,7 @@
 /**
  * FloatConnect frontend scripts.
  *
- * @package Fcon
+ * @package Floatconnect
  */
 
 'use strict';

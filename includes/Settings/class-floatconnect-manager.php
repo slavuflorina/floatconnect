@@ -2,40 +2,40 @@
 /**
  * FloatConnect settings manager.
  *
- * @package Fcon
+ * @package Floatconnect
  */
 
 declare( strict_types=1 );
 
-namespace FloriPlugins\Fcon\Settings;
+namespace FloriPlugins\Floatconnect\Settings;
 
 defined( 'ABSPATH' ) || exit;
 
 /**
  * Handles FloatConnect settings operations.
  */
-final class Manager {
+final class FLOATCONNECT_Manager {
 
 	/**
 	 * Settings repository.
 	 *
-	 * @var Repository
+	 * @var FLOATCONNECT_Repository
 	 */
-	private Repository $repository;
+	private FLOATCONNECT_Repository $repository;
 
 	/**
 	 * Settings sanitizer.
 	 *
-	 * @var Sanitizer
+	 * @var FLOATCONNECT_Sanitizer
 	 */
-	private Sanitizer $sanitizer;
+	private FLOATCONNECT_Sanitizer $sanitizer;
 
 	/**
 	 * Constructor.
 	 */
 	public function __construct() {
-		$this->repository = new Repository();
-		$this->sanitizer  = new Sanitizer();
+		$this->repository = new FLOATCONNECT_Repository();
+		$this->sanitizer  = new FLOATCONNECT_Sanitizer();
 	}
 
 	/**
@@ -75,7 +75,7 @@ final class Manager {
 		$sanitized = $this->sanitizer->sanitize( $settings );
 
 		$errors = get_settings_errors(
-			'fcon'
+			'floatconnect'
 		);
 
 		if ( ! empty( $errors ) ) {
@@ -91,7 +91,7 @@ final class Manager {
 	 * @return bool
 	 */
 	public function reset(): bool {
-		$defaults = Defaults::all();
+		$defaults = FLOATCONNECT_Defaults::all();
 
 		/*
 		 * Keep the default contact structurally valid.

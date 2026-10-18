@@ -7,5 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'PHPCSStandards\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\' => array($vendorDir . '/dealerdirect/phpcodesniffer-composer-installer/src'),
-    'FloriPlugins\\Fcon\\' => array($baseDir . '/includes'),
+    'FloriPlugins\\Floatconnect\\' => array($baseDir . '/includes'),
 );

@@ -1,7 +1,7 @@
 /**
  * FloatConnect frontend styles.
  *
- * @package Fcon
+ * @package Floatconnect
  */
 
 
@@ -9,20 +9,20 @@
  * Base
  * --------------------------------------------------------- */
 
-.fcon {
+.floatconnect {
 	position: fixed;
-	z-index: var(--fcon-z, 999999);
+	z-index: var(--floatconnect-z, 999999);
 	box-sizing: border-box;
 }
 
-.fcon--bottom-right {
-	right: var(--fcon-side, 24px);
-	bottom: var(--fcon-bottom, 24px);
+.floatconnect--bottom-right {
+	right: var(--floatconnect-side, 24px);
+	bottom: var(--floatconnect-bottom, 24px);
 }
 
-.fcon--bottom-left {
-	left: var(--fcon-side, 24px);
-	bottom: var(--fcon-bottom, 24px);
+.floatconnect--bottom-left {
+	left: var(--floatconnect-side, 24px);
+	bottom: var(--floatconnect-bottom, 24px);
 }
 
 
@@ -30,9 +30,9 @@
  * Contact
  * --------------------------------------------------------- */
 
-.fcon__contact {
-	background: var(--fcon-contact-bg, #25D366);
-	color: var(--fcon-contact-icon, #FFFFFF);
+.floatconnect__contact {
+	background: var(--floatconnect-contact-bg, #25D366);
+	color: var(--floatconnect-contact-icon, #FFFFFF);
 	text-decoration: none;
 	box-sizing: border-box;
 
@@ -49,34 +49,34 @@
  * Single button
  * --------------------------------------------------------- */
 
-.fcon__contact--single {
+.floatconnect__contact--single {
 	position: relative;
 
 	display: flex;
 	align-items: center;
 	justify-content: center;
 
-	width: var(--fcon-size, 60px);
-	height: var(--fcon-size, 60px);
+	width: var(--floatconnect-size, 60px);
+	height: var(--floatconnect-size, 60px);
 
 	padding: 0;
 	margin: 0;
 
-	border-radius: var(--fcon-radius, 50%);
+	border-radius: var(--floatconnect-radius, 50%);
 
-	background: var(--fcon-contact-bg, #25D366);
-	color: var(--fcon-contact-icon, #FFFFFF);
+	background: var(--floatconnect-contact-bg, #25D366);
+	color: var(--floatconnect-contact-icon, #FFFFFF);
 
 	box-sizing: border-box;
 }
 
-.fcon__contact--single:hover {
-	background: var(--fcon-contact-hover-bg, #20BD5A);
-	color: var(--fcon-contact-hover-icon, #FFFFFF);
+.floatconnect__contact--single:hover {
+	background: var(--floatconnect-contact-hover-bg, #20BD5A);
+	color: var(--floatconnect-contact-hover-icon, #FFFFFF);
 	text-decoration: none;
 }
 
-.fcon__contact--single:focus-visible {
+.floatconnect__contact--single:focus-visible {
 	outline: 2px solid currentColor;
 	outline-offset: 3px;
 }
@@ -86,11 +86,11 @@
  * Disable hover
  * --------------------------------------------------------- */
 
-.fcon--no-hover .fcon__contact:hover {
+.floatconnect--no-hover .floatconnect__contact:hover {
 	opacity: 1;
 }
 
-.fcon--no-hover .fcon__contact {
+.floatconnect--no-hover .floatconnect__contact {
 	animation: none !important;
 }
 
@@ -99,7 +99,7 @@
  * Icon
  * --------------------------------------------------------- */
 
-.fcon__icon {
+.floatconnect__icon {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -111,11 +111,11 @@
 	flex-shrink: 0;
 }
 
-.fcon-icon-svg {
+.floatconnect-icon-svg {
 	display: block;
 
-	width: var(--fcon-icon-size, 32px);
-	height: var(--fcon-icon-size, 32px);
+	width: var(--floatconnect-icon-size, 32px);
+	height: var(--floatconnect-icon-size, 32px);
 
 	fill: currentColor;
 	color: inherit;
@@ -128,16 +128,16 @@
  * Shadows
  * --------------------------------------------------------- */
 
-.fcon--shadow-none .fcon__contact--single {
+.floatconnect--shadow-none .floatconnect__contact--single {
 	box-shadow: none;
 }
 
-.fcon--shadow-soft .fcon__contact--single {
+.floatconnect--shadow-soft .floatconnect__contact--single {
 	box-shadow:
 		0 4px 14px rgba(0, 0, 0, 0.14);
 }
 
-.fcon--shadow-strong .fcon__contact--single {
+.floatconnect--shadow-strong .floatconnect__contact--single {
 	box-shadow:
 		0 8px 30px rgba(0, 0, 0, 0.24);
 }
@@ -147,7 +147,7 @@
  * Animation - Pulse
  * --------------------------------------------------------- */
 
-@keyframes fcon-pulse {
+@keyframes floatconnect-pulse {
 
 	0% {
 		transform: scale(1);
@@ -162,9 +162,9 @@
 	}
 }
 
-.fcon--animation-pulse .fcon__contact--single {
+.floatconnect--animation-pulse .floatconnect__contact--single {
 	animation:
-		fcon-pulse 2s ease-in-out infinite;
+		floatconnect-pulse 2s ease-in-out infinite;
 }
 
 
@@ -172,7 +172,7 @@
  * Animation - Bounce
  * --------------------------------------------------------- */
 
-@keyframes fcon-bounce {
+@keyframes floatconnect-bounce {
 
 	0%,
 	20%,
@@ -191,9 +191,9 @@
 	}
 }
 
-.fcon--animation-bounce .fcon__contact--single {
+.floatconnect--animation-bounce .floatconnect__contact--single {
 	animation:
-		fcon-bounce 2s ease-in-out infinite;
+		floatconnect-bounce 2s ease-in-out infinite;
 }
 
 
@@ -203,14 +203,14 @@
 
 @media (max-width: 767px) {
 
-	.fcon__contact--single {
-		width: var(--fcon-size, 60px);
-		height: var(--fcon-size, 60px);
+	.floatconnect__contact--single {
+		width: var(--floatconnect-size, 60px);
+		height: var(--floatconnect-size, 60px);
 	}
 
-	.fcon-icon-svg {
-		width: var(--fcon-icon-size, 32px);
-		height: var(--fcon-icon-size, 32px);
+	.floatconnect-icon-svg {
+		width: var(--floatconnect-icon-size, 32px);
+		height: var(--floatconnect-icon-size, 32px);
 	}
 }
 
@@ -221,9 +221,9 @@
 
 @media (prefers-reduced-motion: reduce) {
 
-	.fcon *,
-	.fcon *::before,
-	.fcon *::after {
+	.floatconnect *,
+	.floatconnect *::before,
+	.floatconnect *::after {
 		animation-duration: 0.01ms !important;
 		animation-iteration-count: 1 !important;
 

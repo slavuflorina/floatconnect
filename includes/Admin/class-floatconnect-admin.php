@@ -1,35 +1,35 @@
 <?php
 /**
- * Fcon admin functionality.
+ * Floatconnect admin functionality.
  *
- * @package Fcon
+ * @package Floatconnect
  */
 
 declare( strict_types=1 );
 
-namespace FloriPlugins\Fcon\Admin;
+namespace FloriPlugins\Floatconnect\Admin;
 
-use FloriPlugins\Fcon\Admin\Pages\Dashboard;
+use FloriPlugins\Floatconnect\Admin\Pages\FLOATCONNECT_Dashboard;
 
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Handles Fcon admin functionality.
+ * Handles Floatconnect admin functionality.
  */
-final class Admin {
+final class FLOATCONNECT_Admin {
 
 	/**
 	 * Dashboard page.
 	 *
-	 * @var Dashboard
+	 * @var FLOATCONNECT_Dashboard
 	 */
-	private Dashboard $dashboard;
+	private FLOATCONNECT_Dashboard $dashboard;
 
 	/**
 	 * Constructor.
 	 */
 	public function __construct() {
-		$this->dashboard = new Dashboard();
+		$this->dashboard = new FLOATCONNECT_Dashboard();
 	}
 
 	/**
@@ -47,7 +47,7 @@ final class Admin {
 	}
 
 	/**
-	 * Register Fcon admin menu.
+	 * Register Floatconnect admin menu.
 	 *
 	 * @return void
 	 */

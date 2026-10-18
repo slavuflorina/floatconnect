@@ -1,20 +1,20 @@
 <?php
 /**
- * Fcon assets.
+ * Floatconnect assets.
  *
- * @package Fcon
+ * @package Floatconnect
  */
 
 declare( strict_types=1 );
 
-namespace FloriPlugins\Fcon\Assets;
+namespace FloriPlugins\Floatconnect\Assets;
 
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Handles Fcon plugin assets.
+ * Handles Floatconnect plugin assets.
  */
-final class Assets {
+final class FLOATCONNECT_Assets {
 
 	/**
 	 * Register asset hooks.
@@ -40,10 +40,10 @@ final class Assets {
 	 */
 	public function enqueue_admin(): void {
 		wp_enqueue_style(
-			'fcon-admin',
-			FCON_URL . 'assets/admin/admin.css',
+			'floatconnect-admin',
+			FLOATCONNECT_URL . 'assets/admin/admin.css',
 			array(),
-			FCON_VERSION
+			FLOATCONNECT_VERSION
 		);
 	}
 
@@ -55,17 +55,17 @@ final class Assets {
 	public function enqueue_frontend(): void {
 		if ( ! is_admin() ) {
 			wp_enqueue_style(
-				'fcon-frontend',
-				FCON_URL . 'assets/css/frontend.css',
+				'floatconnect-frontend',
+				FLOATCONNECT_URL . 'assets/css/frontend.css',
 				array(),
-				FCON_VERSION
+				FLOATCONNECT_VERSION
 			);
 
 			wp_enqueue_script(
-				'fcon-frontend',
-				FCON_URL . 'assets/js/frontend.js',
+				'floatconnect-frontend',
+				FLOATCONNECT_URL . 'assets/js/frontend.js',
 				array(),
-				FCON_VERSION,
+				FLOATCONNECT_VERSION,
 				true
 			);
 		}

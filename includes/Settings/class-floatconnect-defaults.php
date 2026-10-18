@@ -2,19 +2,19 @@
 /**
  * Default FloatConnect plugin settings.
  *
- * @package Fcon
+ * @package Floatconnect
  */
 
 declare( strict_types=1 );
 
-namespace FloriPlugins\Fcon\Settings;
+namespace FloriPlugins\Floatconnect\Settings;
 
 defined( 'ABSPATH' ) || exit;
 
 /**
  * Provides default FloatConnect plugin settings.
  */
-final class Defaults {
+final class FLOATCONNECT_Defaults {
 
 	/**
 	 * Get default settings.

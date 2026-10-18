@@ -2,24 +2,24 @@
 /**
  * FloatConnect settings repository.
  *
- * @package Fcon
+ * @package Floatconnect
  */
 
 declare( strict_types=1 );
 
-namespace FloriPlugins\Fcon\Settings;
+namespace FloriPlugins\Floatconnect\Settings;
 
 defined( 'ABSPATH' ) || exit;
 
 /**
  * Handles persistent FloatConnect plugin settings.
  */
-final class Repository {
+final class FLOATCONNECT_Repository {
 
 	/**
 	 * WordPress option name.
 	 */
-	private const OPTION_NAME = 'fcon_settings';
+	private const OPTION_NAME = 'floatconnect_settings';
 
 	/**
 	 * Get all settings.
@@ -37,7 +37,7 @@ final class Repository {
 		}
 
 		return array_replace_recursive(
-			Defaults::all(),
+			FLOATCONNECT_Defaults::all(),
 			$saved
 		);
 	}
